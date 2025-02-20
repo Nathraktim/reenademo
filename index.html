@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +96,6 @@
         }
     </style>
 </head>
-
 <body class="font-inter antialiased">
     <div class="flex overflow-hidden flex-col bg-white">
         <header
@@ -113,14 +111,14 @@
                     </button>
                 </nav>
             </div>
-            <a href="http://127.0.0.1:5500/">
+            <a href="/">
                 <img loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/781114358be1c6948f8898710f602e42cfaaa4308ed20f4b9aeb817e3943c890?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
                 class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[47px]"
                 alt="Company name or branding" />
             </a>
             <div class="flex flex-wrap gap-10 text-center text-black max-md:max-w-full max-sm:hidden font-">
-                <a href="http://127.0.0.1:5500/contact-us.html"
+                <a href="/contact-us.html"
                     class="flex overflow-hidden gap-4 px-6 py-3.5 my-auto bg-[#365413] rounded-[1000px] max-md:px-5 max-sm:hidden max-sm:-mr-1 max-sm:-ml-0.5">
                     <span class="grow max-sm:text-xs font-michroma text-white">Contact Us</span>
                     <img loading="lazy"
@@ -144,12 +142,12 @@
                 </div>
                 <nav>
                     <ul class="flex flex-col items-center space-y-4 mt-4">
-                        <li><a href="http://127.0.0.1:5500/" class="text-custom-green hover:text-green-700">Home</a></li>
-                        <li><a href="#" class="text-custom-green hover:text-green-700">About Us</a></li>
-                        <li><a href="#" class="text-custom-green hover:text-green-700">What I Do</a></li>
-                        <li><a href="#" class="text-custom-green hover:text-green-700">Portfolio</a></li>
-                        <li><a href="#" class="text-custom-green hover:text-green-700">Testimonials</a></li>
-                        <li><a href="http://127.0.0.1:5500/contact-us" class="text-custom-green hover:text-green-700">Contact Us</a></li>
+                        <li><a href="/" class="text-custom-green hover:text-green-700">Home</a></li>
+                        <li><a href="#about-us" class="text-custom-green hover:text-green-700">About Us</a></li>
+                        <li><a href="#what-i-do" class="text-custom-green hover:text-green-700">What I Do</a></li>
+                        <li><a href="#portfolio" class="text-custom-green hover:text-green-700">Portfolio</a></li>
+                        <li><a href="#testimonials" class="text-custom-green hover:text-green-700">Testimonials</a></li>
+                        <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -349,12 +347,12 @@
                     alt="Company logo" />
                 <nav class="flex text-[14px] flex-col items-start font-michroma tracking-wide">
                     <ul class="flex flex-col gap-3">
-                        <li><a href="http://127.0.0.1:5500/" class="mt-7">Home</a></li>
+                        <li><a href="/" class="mt-7">Home</a></li>
                         <li><a href="#about-us" class="text-center">About Us</a></li>
                         <li><a href="#service" class="mt-7">Service</a></li>
                         <li><a href="#portfolio" class="mt-7">Portfolio</a></li>
                         <li><a href="#testimonials" class="self-stretch mt-7">Testimonials</a></li>
-                        <li><a href="http://127.0.0.1:5500/contact-us.html" class="mt-7">Contact Us</a></li>
+                        <li><a href="/contact-us.html" class="mt-7">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -382,7 +380,19 @@
         closeMenuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            const domain = window.location.origin; // Gets the full domain (e.g., http://localhost:5500)
+            const links = document.querySelectorAll('a[href^="#"]'); // Select all anchor links
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+
+                // Check if the href already includes the domain or is just a hash
+                if (!href.startsWith(domain) && href.startsWith('#')) {
+                    link.setAttribute('href', domain + href); // Add the domain if it's missing
+                }
+            });
+        });
     </script>
 </body>
-
 </html>
