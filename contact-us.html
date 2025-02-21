@@ -229,17 +229,35 @@
             </section>
             <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
                 <div class="flex flex-col items-center justify-center w-full h-fit">
-                    <div class="flex flex-row md:flex-row justify-between w-full max-w-[1299px] transition-all duration-200 pt-20 pb-28">
+                    <div class="flex px-5 antialiased flex-row md:flex-row justify-between w-full max-w-[1299px] transition-all duration-200 pt-20 pb-28">
                         <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
+                            <div class="flex-col flex md:hidden items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                                <div class="carousel-container w-[300px] h-[300px] relative">
+                                    <div class="slide-first active">
+                                        <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                                    </div>
+                                    <div class="slide-first">
+                                        <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                                    </div>
+                                    <div class="slide-first">
+                                        <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                                    </div>
+                                </div>
+                                <div class="dots-container-first">
+                                    <button class="dot active" data-slide="0"></button>
+                                    <button class="dot" data-slide="1"></button>
+                                    <button class="dot" data-slide="2"></button>
+                                </div>
+                            </div>
                             <h1 class="text-4xl font-michroma uppercase">Our Story</h1>
-                            <p class="tracking-wider text-[15px] leading-[1.8]">
+                            <p class="tracking-wider font-light text-[15px] leading-[1.8]">
                                 At Socials by Reena, we’ve worked with over 200 businesses, ranging from global brands like HelloFresh and BlendJet to local treasures like Patel’s Kingston Lanes. For Patel’s Kingston Lanes, we took their social media from zero presence to becoming a recognized name in their local community.</p>
                                 <p class="tracking-wider text-[15px] leading-[1.8]">
                                     Our content isn’t just pretty—it’s powerful. We’ve helped clients achieve over 3+ million views and significant revenue from single videos. Our content strategies deliver real results, like CTRs and clicks ranking in the top 31% of the industry average. And because I’m an all-niche creator, I don’t believe in narrowing down. Instead, I conduct in-depth research to understand your brand and become your niche.</p>
                                     <p class="tracking-wider text-[15px] leading-[1.8]">
                                         We constantly stay ahead of the curve, keeping ourselves updated with the latest social media trends and strategies. From algorithm changes to content best practices, we make sure your brand is always a step ahead in the digital space.</p>
                     </div>
-                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                    <div class="flex-col hidden md:flex items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
                         <div class="carousel-container w-[300px] h-[300px] relative">
                             <div class="slide-first active">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
@@ -317,21 +335,21 @@
                 <nav class="flex text-[14px] flex-col items-start font-michroma tracking-wide">
                     <ul class="flex flex-col gap-3">
                         <li><a href="/" class="mt-7">Home</a></li>
-                        <li><a href="#about-us" class="text-center">About Us</a></li>
-                        <li><a href="#service" class="mt-7">Service</a></li>
-                        <li><a href="#portfolio" class="mt-7">Portfolio</a></li>
-                        <li><a href="#testimonials" class="self-stretch mt-7">Testimonials</a></li>
+                        <li><a href="/about-me.html" class="text-center">About Us</a></li>
+                        <li><a href="./what-we-do.html" class="mt-7">Service</a></li>
+                        <li><a href="/portfolio.html" class="mt-7">Portfolio</a></li>
                         <li><a href="/contact-us.html" class="mt-7">Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
             <div
-                class="flex flex-col justify-center items-center px-20 py-8 mt-10 text-center border border-lime-900 border-solid max-md:px-5 max-md:max-w-full">
+                class="flex flex-col justify-center items-center px-20 py-8 mt-10 text-center border border-t-lime-900 border-solid max-md:px-5 max-md:max-w-full">
                 <div class="flex flex-col max-w-full w-[246px]">
                     <div class="-mx-px w-64 text-base uppercase tracking-[6.08px]">
                         SOCIALS BY REENA
                     </div>
                     <div class="self-center mt-3.5 text-base">All rights reserved©</div>
+                    <div class="self-center text-sm py-2 whitespace-nowrap">Design and developed by Traceworks</div>
                 </div>
             </div>
         </footer>
