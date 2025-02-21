@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socials By Reena - Contact Us</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kaushan+Script&family=Michroma&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-green': '#4F6F52',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'kaushan': ['Kaushan Script', 'cursive'],
+                        'michroma': ['Michroma', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .dots-container-first {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        opacity: .5;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        width: 10px;
+        height: 10px;
+        background-color: #D9D9D9;
+        opacity: 1;
+    }
+        .carousel-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .slide-first {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide-first.active {
+        opacity: 1;
+    }
+
+    .slide-first img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+        /* Custom CSS for the arrows */
+        .custom-arrow {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black */
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .custom-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .arrow-left {
+            left: 1rem;
+        }
+
+        .arrow-right {
+            right: 1rem;
+        }
+
+        /* Mobile Menu Styles */
+        #mobile-menu.open {
+            display: flex !important;
+            /* Override Tailwind's 'hidden' class */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #mobile-menu.open .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #mobile-menu.open .flex.justify-end {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        #mobile-menu.open nav {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-blend-exclusion {
+            mix-blend-mode: exclusion;
+        }
+    </style>
+</head>
+
+<body class="font-inter antialiased">
+    <div class="flex overflow-hidden flex-col bg-white">
+        <header
+            class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
+            <div id="menu-button" class="flex gap-5 my-auto text-black whitespace-nowrap">
+                <img loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/3467b4b230bb3450f91819edd7cd79779309649a70aa90ab3a792bf0a240ab0b?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                    class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[85px] max-sm:w-[58px]"
+                    alt="Company logo" />
+                <nav class="my-auto">
+                    <button class="font-michroma hidden md:flex">
+                        MENU
+                    </button>
+                </nav>
+            </div>
+            <a href="/">
+                <img loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/781114358be1c6948f8898710f602e42cfaaa4308ed20f4b9aeb817e3943c890?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
+                alt="Company name or branding" />
+            </a>
+            <div class="flex flex-wrap gap-10 text-center text-black max-md:max-w-full max-sm:hidden font-">
+                <a href="/contact-us.html"
+                    class="flex overflow-hidden gap-4 px-6 py-3.5 my-auto bg-[#365413] rounded-[1000px] max-md:px-5 max-sm:hidden max-sm:-mr-1 max-sm:-ml-0.5">
+                    <span class="grow max-sm:text-xs font-michroma text-white">Contact Us</span>
+                    <img loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/3bdf8e3eef5a174926d8a37915fdf5bc5d67bb18101340e0c229e4b7e97f173c?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                        class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="" />
+                </a>
+            </div>
+        </header>
+
+        <div id="mobile-menu" class="hidden bg-white py-4">
+            <div class="container mx-auto">
+                <div class="flex flex-row justify-end border-2 px-4 py-2 border-gray-200 rounded-full">
+                    <button id="close-menu-button" class="flex flex-row text-gray-600 hover:text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <span class="ml-2">CLOSE</span>
+                    </button>
+                </div>
+                <nav>
+                    <ul class="flex flex-col text-left text-xl md:text-3xl font-michroma space-y-4 mt-4">
+                        <li><a href="/" class="text-custom-green hover:text-green-700">Home</a></li>
+                        <li><a href="/about-me.html" class="text-custom-green hover:text-green-700">About Us</a></li>
+                        <li><a href="/what-we-do.html" class="text-custom-green hover:text-green-700">What I Do</a></li>
+                        <li><a href="#portfolio" class="text-custom-green hover:text-green-700">Portfolio</a></li>
+                        <li><a href="#testimonials" class="text-custom-green hover:text-green-700">Testimonials</a></li>
+                        <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main class="flex-grow">
+            <section class="flex flex-col w-full items-center px-20 py-16 max-md:px-5">
+                <div class="flex flex-col md:flex-row w-full justify-between items-center">
+                    <h1 class="text-3xl md:text-5xl font-michroma text-custom-green uppercase text-center mb-8">Contact Us</h1>
+                <div class="flex space-x-4 mb-12">
+                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                        <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            
+                    </div>
+                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                        <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                    </div>
+                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                        <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            
+                    </div>
+                </div>
+                </div>
+            </section>
+            <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
+                <div class="flex flex-col items-center justify-center w-full h-fit">
+                    <div class="flex flex-row md:flex-row justify-between w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
+                        <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
+                            <h1 class="text-4xl font-michroma uppercase">Our Story</h1>
+                            <p class="tracking-wider text-[15px] leading-[1.8]">
+                                At Socials by Reena, we’ve worked with over 200 businesses, ranging from global brands like HelloFresh and BlendJet to local treasures like Patel’s Kingston Lanes. For Patel’s Kingston Lanes, we took their social media from zero presence to becoming a recognized name in their local community.</p>
+                                <p class="tracking-wider text-[15px] leading-[1.8]">
+                                    Our content isn’t just pretty—it’s powerful. We’ve helped clients achieve over 3+ million views and significant revenue from single videos. Our content strategies deliver real results, like CTRs and clicks ranking in the top 31% of the industry average. And because I’m an all-niche creator, I don’t believe in narrowing down. Instead, I conduct in-depth research to understand your brand and become your niche.</p>
+                                    <p class="tracking-wider text-[15px] leading-[1.8]">
+                                        We constantly stay ahead of the curve, keeping ourselves updated with the latest social media trends and strategies. From algorithm changes to content best practices, we make sure your brand is always a step ahead in the digital space.</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                        <div class="carousel-container w-[300px] h-[300px] relative">
+                            <div class="slide-first active">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                            </div>
+                            <div class="slide-first">
+                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="slide-first">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                            </div>
+                        </div>
+                        <div class="dots-container-first">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+            <div class="ourStory w-full bg-[#EAF8F7] h-auto">
+                <div class="flex flex-col items-center justify-center w-full h-fit">
+                    <div class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-5 transition-all duration-200 md:px-20 pt-20 pb-28">
+                        <div class="flex flex-row w-full p-8 rounded-3xl">
+                            <div class="bg-white hidden md:flex rounded-full w-[300px] h-[300px] shadow-lg m-10"></div>
+                            <form class="flex-grow flex-col gap-4">
+                                <div>
+                                    <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name *</label>
+                                    <input type="text" id="firstName" placeholder="Please Provide Your First Name"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name *</label>
+                                    <input type="text" id="lastName" placeholder="Please Provide Your Last Name"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address *</label>
+                                    <input type="email" id="email" placeholder="Please Provide Your Email"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div>
+                                    <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name</label>
+                                    <input type="text" id="companyName" placeholder="What's your company or brand?"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div>
+                                    <label for="website" class="block text-gray-700 text-sm font-bold mb-2">Website or Social Media Links</label>
+                                    <input type="text" id="website" placeholder="www.and/or@"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div>
+                                    <label for="startDate" class="block text-gray-700 text-sm font-bold mb-2">Ideal Service Start Date</label>
+                                    <input type="text" id="startDate" placeholder="Date, Month or Season - Whatever your current thoughts are"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <button class="bg-custom-green hover:bg-green-700 text-white font-bold py-2 px-4 mt-10 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                </div>
+            </div></div>
+            
+
+        </main>
+
+        <footer
+            class="flex overflow-hidden flex-col pt-14 mt-1.5 w-full leading-tight text-black bg-white border-b border-lime-900 max-md:max-w-full">
+            <div
+                class="flex flex-wrap gap-5 justify-between self-center px-14 w-full text-base tracking-tight uppercase max-w-[1299px] max-md:max-w-full">
+                <img loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/fa70495eb6fd80abc56ab8edb36bc670980a2b8a4cd91cc2246f9f298907ee27?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                    class="object-contain shrink-0 self-start max-w-full bg-blend-exclusion aspect-[2.43] w-[119px]"
+                    alt="Company logo" />
+                <nav class="flex text-[14px] flex-col items-start font-michroma tracking-wide">
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="/" class="mt-7">Home</a></li>
+                        <li><a href="#about-us" class="text-center">About Us</a></li>
+                        <li><a href="#service" class="mt-7">Service</a></li>
+                        <li><a href="#portfolio" class="mt-7">Portfolio</a></li>
+                        <li><a href="#testimonials" class="self-stretch mt-7">Testimonials</a></li>
+                        <li><a href="/contact-us.html" class="mt-7">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div
+                class="flex flex-col justify-center items-center px-20 py-8 mt-10 text-center border border-lime-900 border-solid max-md:px-5 max-md:max-w-full">
+                <div class="flex flex-col max-w-full w-[246px]">
+                    <div class="-mx-px w-64 text-base uppercase tracking-[6.08px]">
+                        SOCIALS BY REENA
+                    </div>
+                    <div class="self-center mt-3.5 text-base">All rights reserved©</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide-first');
+            const dots = document.querySelectorAll('.dot');
+            let autoSlideInterval;
+    
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show new slide and activate dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+    
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            }
+    
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+    
+            // Start automatic sliding
+            startAutoSlide();
+        });
+    </script>
+</body>
+
+</html>

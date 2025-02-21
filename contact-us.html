@@ -31,6 +31,54 @@
         }
     </script>
     <style>
+        .dots-container-first {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        opacity: .5;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        width: 10px;
+        height: 10px;
+        background-color: #D9D9D9;
+        opacity: 1;
+    }
+        .carousel-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .slide-first {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide-first.active {
+        opacity: 1;
+    }
+
+    .slide-first img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
         /* Custom CSS for the arrows */
         .custom-arrow {
             background-color: rgba(0, 0, 0, 0.5);
@@ -156,8 +204,8 @@
         </div>
         <main class="flex-grow">
             <section class="flex flex-col w-full items-center px-20 py-16 max-md:px-5">
-                <div class="flex flex-col md:flex-row w-full justify-between items-center">
-                    <h1 class="text-3xl md:text-5xl font-michroma text-custom-green uppercase text-center mb-8">Contact Us</h1>
+                <div class="flex w-full max-w-[1299px] flex-col md:flex-row w-full justify-between items-center">
+                    <h1 class="text-3xl md:text-4xl font-michroma text-custom-green uppercase text-center mb-8">Contact Us</h1>
                 <div class="flex space-x-4 mb-12">
                     <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
                         <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,7 +229,7 @@
             </section>
             <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
                 <div class="flex flex-col items-center justify-center w-full h-fit">
-                    <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
+                    <div class="flex flex-row md:flex-row justify-between w-full max-w-[1299px] transition-all duration-200 pt-20 pb-28">
                         <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
                             <h1 class="text-4xl font-michroma uppercase">Our Story</h1>
                             <p class="tracking-wider text-[15px] leading-[1.8]">
@@ -191,11 +239,29 @@
                                     <p class="tracking-wider text-[15px] leading-[1.8]">
                                         We constantly stay ahead of the curve, keeping ourselves updated with the latest social media trends and strategies. From algorithm changes to content best practices, we make sure your brand is always a step ahead in the digital space.</p>
                     </div>
+                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                        <div class="carousel-container w-[300px] h-[300px] relative">
+                            <div class="slide-first active">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                            </div>
+                            <div class="slide-first">
+                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="slide-first">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                            </div>
+                        </div>
+                        <div class="dots-container-first">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                        </div>
+                    </div>
                 </div>
             </div></div>
             <div class="ourStory w-full bg-[#EAF8F7] h-auto">
                 <div class="flex flex-col items-center justify-center w-full h-fit">
-                    <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-5 transition-all duration-200 md:px-20 pt-20 pb-28">
+                    <div class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-5 transition-all duration-200 md:px-20 pt-20 pb-28">
                         <div class="flex flex-row w-full p-8 rounded-3xl">
                             <div class="bg-white hidden md:flex rounded-full w-[300px] h-[300px] shadow-lg m-10"></div>
                             <form class="flex-grow flex-col gap-4">
@@ -243,7 +309,7 @@
         <footer
             class="flex overflow-hidden flex-col pt-14 mt-1.5 w-full leading-tight text-black bg-white border-b border-lime-900 max-md:max-w-full">
             <div
-                class="flex flex-wrap gap-5 justify-between self-center px-14 w-full text-base tracking-tight uppercase max-w-[1148px] max-md:max-w-full">
+                class="flex flex-wrap gap-5 justify-between self-center px-14 w-full text-base tracking-tight uppercase max-w-[1299px] max-md:max-w-full">
                 <img loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/fa70495eb6fd80abc56ab8edb36bc670980a2b8a4cd91cc2246f9f298907ee27?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
                     class="object-contain shrink-0 self-start max-w-full bg-blend-exclusion aspect-[2.43] w-[119px]"
@@ -282,6 +348,46 @@
 
         closeMenuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide-first');
+            const dots = document.querySelectorAll('.dot');
+            let autoSlideInterval;
+    
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show new slide and activate dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+    
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            }
+    
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+    
+            // Start automatic sliding
+            startAutoSlide();
         });
     </script>
 </body>
