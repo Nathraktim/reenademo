@@ -38,7 +38,7 @@
         overflow: hidden;
     }
 
-    .slide {
+    .slide-first {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -46,18 +46,68 @@
         transition: opacity 0.5s ease-in-out;
     }
 
-    .slide.active {
+    .slide-second {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide-third {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide-first.active {
         opacity: 1;
     }
 
-    .slide img {
+    .slide-second.active {
+        opacity: 1;
+    }
+
+    .slide-third.active {
+        opacity: 1;
+    }
+
+    .slide-first img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .slide-second img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .slide-third img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
     }
 
-    .dots-container {
+    .dots-container-first {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .dots-container-second {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .dots-container-third {
         display: flex;
         justify-content: center;
         gap: 8px;
@@ -262,17 +312,17 @@
                     </div>
                     <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
                         <div class="carousel-container w-[300px] h-[300px] relative">
-                            <div class="slide active">
+                            <div class="slide-first active">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
                             </div>
-                            <div class="slide">
+                            <div class="slide-first">
                                 <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
                             </div>
-                            <div class="slide">
+                            <div class="slide-first">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
                             </div>
                         </div>
-                        <div class="dots-container">
+                        <div class="dots-container-first">
                             <button class="dot active" data-slide="0"></button>
                             <button class="dot" data-slide="1"></button>
                             <button class="dot" data-slide="2"></button>
@@ -286,17 +336,17 @@
                 <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-16">
                     <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
                         <div class="carousel-container w-[300px] h-[300px] relative">
-                            <div class="slide active">
+                            <div class="slide-second active">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
                             </div>
-                            <div class="slide">
+                            <div class="slide-second">
                                 <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
                             </div>
-                            <div class="slide">
+                            <div class="slide-second">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
                             </div>
                         </div>
-                        <div class="dots-container">
+                        <div class="dots-container-second">
                             <button class="dot active" data-slide="0"></button>
                             <button class="dot" data-slide="1"></button>
                             <button class="dot" data-slide="2"></button>
@@ -314,21 +364,21 @@
                 <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-16">
                     <div class="flex-col text-[#ffffff] flex w-full md:max-w-[700px] gap-8 justify-start text-left">
                         <h1 class="md:text-3xl text-2xl font-michroma uppercase">UGC<br>(User-Generated Content)</h1>
-                        <p class="tracking-wider text-[15px] leading-[1.8]">Harness the power of authentic voices to build trust and drive conversions. We connect you with creators who can showcase your brand in a genuine way..</p>
+                        <p class="tracking-wider text-[15px] leading-[1.8]">We handle everything from strategy and content creation to community management and performance tracking. Focus on your business while we build your brand's online presence.</p>
                     </div>
                     <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
                         <div class="carousel-container w-[300px] h-[300px] relative">
-                            <div class="slide active">
+                            <div class="slide-third active">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
                             </div>
-                            <div class="slide">
+                            <div class="slide-third">
                                 <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
                             </div>
-                            <div class="slide">
+                            <div class="slide-third">
                                 <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
                             </div>
                         </div>
-                        <div class="dots-container">
+                        <div class="dots-container-third">
                             <button class="dot active" data-slide="0"></button>
                             <button class="dot" data-slide="1"></button>
                             <button class="dot" data-slide="2"></button>
@@ -418,7 +468,87 @@ Lets connect.!</p>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let currentSlide = 0;
-            const slides = document.querySelectorAll('.slide');
+            const slides = document.querySelectorAll('.slide-first');
+            const dots = document.querySelectorAll('.dot');
+            let autoSlideInterval;
+    
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show new slide and activate dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+    
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            }
+    
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+    
+            // Start automatic sliding
+            startAutoSlide();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide-second');
+            const dots = document.querySelectorAll('.dot');
+            let autoSlideInterval;
+    
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show new slide and activate dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+    
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            }
+    
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+    
+            // Start automatic sliding
+            startAutoSlide();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide-third');
             const dots = document.querySelectorAll('.dot');
             let autoSlideInterval;
     

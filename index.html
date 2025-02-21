@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -94,12 +96,116 @@
         .bg-blend-exclusion {
             mix-blend-mode: exclusion;
         }
+
+      /* Style for Active Tabs */
+        .nav-tab.active-tab {
+            font-weight: bold;
+            /* Add other styles as needed */
+        }
+
+        .nav-tab {
+            position: relative;
+            cursor: pointer;
+            padding-bottom: 8px;
+        }
+
+        .tab-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: white;
+            border-radius: 1000px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .logo-marquee-container {
+    max-width: 800px;
+    height: 100px;
+    overflow: hidden;
+    margin: 20px auto;
+    position: relative;
+}
+
+.logo-track {
+    display: flex;
+    animation: marquee 20s linear infinite;
+}
+
+.logo-track-rev {
+    display: flex;
+    animation: marquee-rev 20s linear infinite;
+}
+
+.logo-marquee-container:hover .logo-track {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    flex-shrink: 0;
+    width: 100px;
+    height: 80px;
+    margin: 10px;
+    /* background-color: #ccc;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #333;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.logo-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-rev {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+/* Gradient Overlays */
+.logo-marquee-container::before,
+.logo-marquee-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.logo-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.logo-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
     </style>
 </head>
+
 <body class="font-inter antialiased">
     <div class="flex overflow-hidden flex-col bg-white">
-        <header
-            class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
+        <header class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
             <div id="menu-button" class="flex gap-5 my-auto text-black whitespace-nowrap">
                 <img loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/3467b4b230bb3450f91819edd7cd79779309649a70aa90ab3a792bf0a240ab0b?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
@@ -113,9 +219,9 @@
             </div>
             <a href="/">
                 <img loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/781114358be1c6948f8898710f602e42cfaaa4308ed20f4b9aeb817e3943c890?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
-                alt="Company name or branding" />
+                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/781114358be1c6948f8898710f602e42cfaaa4308ed20f4b9aeb817e3943c890?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                    class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
+                    alt="Company name or branding" />
             </a>
             <div class="flex flex-wrap gap-10 text-center text-black max-md:max-w-full max-sm:hidden font-">
                 <a href="/contact-us.html"
@@ -132,11 +238,7 @@
             <div class="container mx-auto">
                 <div class="flex flex-row justify-end border-2 px-4 py-2 border-gray-200 rounded-full">
                     <button id="close-menu-button" class="flex flex-row text-gray-600 hover:text-gray-800 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
+                        <!-- SVG -->
                         <span class="ml-2">CLOSE</span>
                     </button>
                 </div>
@@ -159,21 +261,15 @@
                     <div class="w-full flex flex-row md:hidden justify-end">
                         <div class="flex space-x-4">
                             <div class="hover:scale-105 duration-300 transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
+                                <!-- SVG -->
+
                             </div>
                             <div class="hover:scale-105 duration-300 transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
+                                <!-- SVG -->
                             </div>
                             <div class="hover:scale-105 hover:shadow-sm shadow-0 duration-300 transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
+                                <!-- SVG -->
+
                             </div>
                         </div>
                     </div>
@@ -183,31 +279,29 @@
                         alt="Illustration of social media content creation" />
                 </div>
                 <div class="flex flex-col font-michroma ml-5 w-[56%] max-md:ml-0 max-md:w-full">
-                    <div class="w-full h-auto md:flex flex-row hidden justify-end">
+                    <div class="w-full h-auto md:flex flex-row hidden justify-start">
                         <div class="flex space-x-4">
                             <a href="https://www.instagram.com/socialsbyreena/">
                                 <div class="hover:scale-105 duration-300 hover:shadow-md transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
                                     <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        
                                 </div>
                             </a>
                             <a href="https://x.com/socialsbyreena">
-                            <div class="hover:scale-105 duration-300 hover:shadow-md transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                            </div>
-                        </a>
-                        <a href="https://www.instagram.com/socialsbyreena/">
-                            <div class="hover:scale-105 duration-300 hover:shadow-md transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
-                            </div>
-                        </a>
+                                <div class="hover:scale-105 duration-300 hover:shadow-md transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/socialsbyreena/">
+                                <div class="hover:scale-105 duration-300 hover:shadow-md transition-scale bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <h1
@@ -226,7 +320,9 @@
                 </div>
             </div>
         </main>
-        <section class="flex flex-col pb-24 mt-80 w-full max-md:pb-24 max-md:mt-10 max-md:max-w-full">
+
+           
+ <section class="flex flex-col mt-80 w-full max-md:pb-24 max-md:mt-10 max-md:max-w-full">
             <div
                 class="flex z-10 flex-col items-center px-20 pt-24 pb-40 -mt-28 w-full bg-[#55883B] rounded-[73px_5px_73px_0px] max-md:px-5 max-md:py-24 max-md:max-w-full max-sm:pt-14 max-sm:mt-0">
                 <div class="flex flex-col -mb-8 w-full max-w-[1055px] max-md:mb-2.5 max-md:max-w-full">
@@ -236,9 +332,9 @@
                                 <div
                                     class="flex shrink-0 mx-auto max-w-full bg-zinc-300 h-[446px] rounded-[37px] overflow-hidden hover:scale-[101%] transition-scale duration-200 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[367px] max-md:mt-10 max-sm:pt-5 max-sm:h-[311px]"
                                     role="img" aria-label="Decorative image representing social media content">
-                                        <img loading="lazy"
-                                            src="/public/reena.JPG"
-                                            class="object-cover w-full rounded-none aspect-[1.37]" alt="Social media management illustration" />
+                                    <img loading="lazy"
+                                        src="/public/reena.JPG"
+                                        class="object-cover w-full rounded-none aspect-[1.37]" alt="Social media management illustration" />
                                 </div>
                             </div>
                             <div class="flex flex-col ml-5 w-[62%] max-md:ml-0 max-md:w-full">
@@ -268,47 +364,104 @@
                         WHAT WE DO
                     </h2>
                     <nav
-                        class="flex flex-wrap gap-10 items-start self-center mt-24 max-w-full text-base tracking-tight leading-tight text-right text-white uppercase w-[840px] max-md:mt-10">
-                        <div class="flex flex-col self-stretch">
-                            <a href="#social-media-management" class="font-michroma">Social Media Management</a>
-                            <div
-                                class="flex shrink-0 self-center mt-3 bg-white h-[3px] rounded-[1000px] w-[125px]">
-                            </div>
+                        class="flex flex-wrap gap-10 items-start self-center mt-24 max-w-full text-base tracking-tight leading-tight text-right text-white uppercase w-[840px] max-md:mt-10 relative">
+                        <div class="tab-indicator" style="width: 125px; left: 0"></div>
+                        <div class="nav-tab font-michroma active-tab" data-tab="1">
+                             Social Media Management
                         </div>
-                        <a href="#content-creation" class="font-michroma grow shrink w-[198px]">Content Creation</a>
-                        <a href="#ugc-creation" class="font-michroma grow shrink w-[136px]">UGC Creation</a>
+                        <div class="nav-tab font-michroma" data-tab="2">
+                             Content Creation
+                         </div>
+                         <div class="nav-tab font-michroma" data-tab="3">
+                             UGC Creation
+                        </div>
                     </nav>
-                    <div class="mt-11 ml-5 max-w-full w-[790px] max-md:mt-10">
-                        <div class="flex gap-5 max-md:flex-col">
-                            <div class="flex flex-col w-[59%] max-md:ml-0 max-md:w-full">
-                                <img loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/2468d0c17967bd83bc72657c9dac28cfc6a2baf3746774a51ce5fdc6951cb964?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                                    class="object-contain grow w-full rounded-none aspect-[1.37] max-md:mt-10"
-                                    alt="Social media management illustration" />
-                            </div>
-                            <div class="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full tracking-wide">
-                                <div class="flex flex-col items-start w-full text-white max-md:mt-10">
-                                    <h3 class="text-xl leading-8 w-[281px] font-michroma">
-                                        SOCIAL MEDIA MANAGEMENT
-                                    </h3>
-                                    <p class="self-stretch mt-8 text-base tracking-wide leading-7">
-                                        Strategic planning and execution of your social media presence
-                                        across all platforms.
-                                    </p>
-                                    <a href="#learn-more" class="flex gap-8 mt-24 text-xl leading-relaxed max-md:mt-10">
-                                        <span>Learn more</span>
-                                        <img loading="lazy"
-                                            src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/0b8216f9311ec3846a829a0e3c461544b598261f1683fee6686a311d4058cc61?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                                            class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="" />
-                                    </a>
-                                </div>
+                   
+                   
+<div class="mt-11 ml-5 max-w-full w-[790px] max-md:mt-10">
+                <!-- Tab 1 Content -->
+                <div class="tab-content active" id="tab-content-1">
+                    <div class="flex gap-5 max-md:flex-col">
+                        <div class="flex flex-col w-[59%] max-md:ml-0 max-md:w-full">
+                            
+                            <img loading="lazy" src="/public/what-we-do/social-media.jpg" class="object-contain grow w-full rounded-none aspect-[1.37]" alt="Content creation illustration" />
+                        </div>
+                        <div class="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full tracking-wide">
+                            <div class="flex flex-col items-start w-full text-white">
+                                <h3 class="text-xl leading-8 w-[281px] font-michroma">
+                                    SOCIAL MEDIA MANAGEMENT
+                                </h3>
+                                <p class="self-stretch mt-8 text-base tracking-wide leading-7">
+                                    Strategic planning and execution of your social media presence
+                                    across all platforms.
+                                </p>
+                                <a href="#learn-more" class="flex gap-8 mt-24 text-xl leading-relaxed max-md:mt-10">
+                                    <span>Learn more</span>
+                                    
+                                    <img loading="lazy" src="arrow-icon.png" class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="">
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <section
-                class="flex flex-col justify-center items-center px-20 py-28 mt-3.5 w-full text-xl text-black border border-solid border-zinc-100 max-md:px-5 max-md:py-24 max-md:max-w-full">
+
+                 <!-- Tab 2 Content -->
+                <div class="tab-content" id="tab-content-2">
+                    <div class="flex gap-5 max-md:flex-col">
+                       
+                                <div class="flex flex-col w-[59%] max-md:ml-0 max-md:w-full">
+                                  
+                                    <img loading="lazy" src="/public/what-we-do/content-creation.jpg" class="object-contain grow w-full rounded-none aspect-[1.37]" alt="Content creation illustration">
+                                </div>
+                                <div class="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full tracking-wide">
+                                    <div class="flex flex-col items-start w-full text-white">
+                                        <h3 class="text-xl leading-8 w-[281px] font-michroma">
+                                           CONTENT CREATION
+                                        </h3>
+                                         <p class="self-stretch mt-8 text-base tracking-wide leading-7">
+                                                 Strategic planning and execution of your content creation presence
+                                            across all platforms.
+                                      </p>
+                                            <a href="#learn-more" class="flex gap-8 mt-24 text-xl leading-relaxed max-md:mt-10">
+                                                     <span>Learn more</span>
+
+                                                    <img loading="lazy" src="arrow-icon.png" class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="">
+                                                  </a>
+                                        </div>
+                               </div>
+                         </div>
+                        </div>
+
+                        <!-- Tab 3 Content -->
+                  <div class="tab-content" id="tab-content-3">
+                       <div class="flex gap-5 max-md:flex-col">
+                        <div class="flex flex-col w-[59%] max-md:ml-0 max-md:w-full">
+                             
+                             <img loading="lazy" src="/public/what-we-do/social-media.jpg" class="object-contain grow w-full rounded-none aspect-[1.37]" alt="Content creation illustration">
+                        </div>
+                         <div class="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full tracking-wide">
+                            <div class="flex flex-col items-start w-full text-white">
+                                <h3 class="text-xl leading-8 w-[281px] font-michroma">
+                                        UGC CREATION
+                                </h3>
+                                  <p class="self-stretch mt-8 text-base tracking-wide leading-7">
+
+                                        Strategic planning and execution of your ugc presence
+                                      across all platforms.
+                                </p>
+                                 <a href="#learn-more" class="flex gap-8 mt-24 text-xl leading-relaxed max-md:mt-10">
+                                    <span>Learn more</span>
+
+                                        <img loading="lazy" src="arrow-icon.png" class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="">
+                                    </a>
+                              </div>
+                             </div>
+                           </div>
+                     </div>
+             </div>
+           </div>
+        </section>
+        <section class="flex flex-col justify-center items-center px-20 py-28 mt-3.5 w-full text-xl text-black border border-solid border-zinc-100 max-md:px-5 max-md:py-24 max-md:max-w-full">
                 <div class="flex flex-col justify-center align-center content-center mb-0 max-w-full w-[768px max-md:mb-2.5">
                     <h2
                         class="font-michroma text-6xl text-center leading-[65px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">
@@ -325,7 +478,7 @@
                         made to actually drive results.
                     </p>
                     <a href="#schedule-call"
-                        class="hover:scale-105 duration-200 transition-scale flex flex-row gap-6 self-center px-10 py-4 mt-16 max-w-full leading-relaxed text-black bg-[#365413] border border-solid border-zinc-100 rounded-[1000px] w-auto max-md:px-5 max-md:mt-10">
+                        class="hover:scale-[105%] hover:shadow-md duration-200 transition-scale flex flex-row gap-6 self-center px-10 py-4 mt-16 max-w-full leading-relaxed text-black bg-[#365413] border border-solid border-zinc-100 rounded-[1000px] w-auto max-md:px-5 max-md:mt-10">
                         <span class="flex-auto -mr-1 text-sm tracking-wide max-md:max-w-full font-michroma text-[#FFFFFF]">
                             Schedule a FREE Disco Call TODAY!
                         </span>
@@ -379,14 +532,100 @@
                 class="self-center mt-16 text-3xl tracking-tighter leading-tight text-center text-black font-michroma tracking-wide uppercase max-md:mt-10 max-md:max-w-full">
                 WHO we have worked with
             </h2>
-            <img loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/9678dac1725ad891e9f30b80db0a04670e5c37bc79a3fdf45564600766acc106?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                class="object-contain mt-12 w-full aspect-[9.9] max-md:mt-10 max-md:max-w-full"
-                alt="Logos of companies we've worked with" />
-            <img loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/9678dac1725ad891e9f30b80db0a04670e5c37bc79a3fdf45564600766acc106?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                class="object-contain mt-4 -mb-5 w-full aspect-[9.9] max-md:mb-2.5 max-md:max-w-full"
-                alt="Additional logos of companies we've worked with" />
+            <div class="scale-105 py-10">
+                <section class="logo-marquee-container">
+                    <div class="logo-track">
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (17).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (18).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (19).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (20).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (21).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (22).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (23).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (24).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (25).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (26).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (27).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (28).png" alt="">
+                        </div>
+                    </div>
+                </section>
+                <section class="logo-marquee-container">
+                    <div class="logo-track-rev">
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (1).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (2).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (3).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (4).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (5).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (6).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (7).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (8).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (9).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (10).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (11).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (12).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (13).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (14).png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (15).png" alt="">
+                        </div>
+                         <div class="logo-item">
+                            <img class="object-cover" src="/public/logos/logo (16).png" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
         </section>
         <footer
             class="flex overflow-hidden flex-col pt-14 mt-1.5 w-full leading-tight text-black bg-white border-b border-lime-900 max-md:max-w-full">
@@ -443,6 +682,35 @@
                     link.setAttribute('href', domain + href); // Add the domain if it's missing
                 }
             });
+        });
+         document.addEventListener("DOMContentLoaded", function() {
+            // All DOM elements will be available from here
+                    const tabs = document.querySelectorAll('.nav-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const indicator = document.querySelector('.tab-indicator');
+
+             tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.dataset.tab;
+
+            // Remove active classes
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active classes
+             this.classList.add('active-tab');
+             document.getElementById(`tab-content-${tabId}`).classList.add('active');
+
+           // Move indicator
+            const tabPosition = this.offsetLeft;
+            const tabWidth = this.offsetWidth;
+            indicator.style.width = `${tabWidth}px`;
+            indicator.style.left = `${tabPosition}px`;
+             });
+    });
+
+// Initialize first tab as active
+             document.querySelector('.nav-tab[data-tab="1"]').click();
         });
     </script>
 </body>
