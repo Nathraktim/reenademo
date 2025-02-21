@@ -30,6 +30,56 @@
         }
     </script>
     <style>
+        /* Carousel Styles */
+    .carousel-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #D9D9D9;
+        opacity: .5;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        width: 10px;
+        height: 10px;
+        background-color: #D9D9D9;
+        opacity: 1;
+    }
         /* Custom CSS for the arrows */
         .custom-arrow {
             background-color: rgba(0, 0, 0, 0.5);
@@ -154,9 +204,30 @@
         </div>
         <div class="hero w-full h-auto">
             <div class="flex flex-col items-center justify-center w-full h-fit">
-                <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 md:px-20 transition-all duration-200 pt-20 pb-28">
-                    <div class="flex flex-col gap-5 md:hidden pb-10">
-                        <div class="socialMediaIcon flex flex-row gap-3 justify-end">
+                <div class="flex flex-col justify-between w-full max-w-[1148px] px-10 md:px-20 transition-all duration-200 pt-5 md:pt-10 pb-5">
+                    <div class="flex-col md:flex-row text-[#365413] flex w-full md:gap-8 justify-between text-left">
+                        <div class="socialMediaIcon md:hidden flex flex-row gap-3 justify-center">
+                            <div class="flex space-x-4 mb-10">
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                </div>
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                </div>
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl font-michroma uppercase">What I Do</h1>
+                        <div class="socialMediaIcon md:flex hidden flex-row gap-3 justify-end">
                             <div class="flex space-x-4 mb-12">
                                 <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
                                     <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,67 +247,106 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="reenaImage md:h-[300px] w-[200px] h-[200px] transition-all duration-200 md:w-[300px] rounded-full bg-red-500"></div>
                     </div>
-                    <div class="flex-col text-[#365413] flex w-full max-w-[500px] gap-8 justify-start text-left">
-                        <h1 class="text-4xl font-michroma uppercase">About Me</h1>
-                        <p class="text-xl font-michroma">Struggling to keep up with your<br> social media while managing your<br>business? That’s where we<br> step in.</p>
-                        <p class="tracking-wider text-[15px] leading-[1.8]">I’m Reena—a social media manager, strategist, UGC creator, and content creator. Before I found my passion for social media, I spent years captivating audiences as a TV soap opera actor and anchoring events for Fortune 500 companies like Apple, Samsung, and Toyota. With a background in hotel management (specializing in marketing) and coming from a family of business owners, I deeply understand the value of every business and the effort it takes to make it thrive.
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-5 hidden md:flex">
-                        <div class="socialMediaIcon flex flex-row gap-3 justify-end">
-                            <div class="flex space-x-4 mb-12">
-                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                    <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        
-                                </div>
-                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                    <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                </div>
-                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reenaImage h-[300px] w-[300px] rounded-full bg-red-500"></div>
-                    </div>
+                    <h1 class="text-4xl font-michroma text-[#365413] text-center pt-8 pb-28">Empowering your brand<br>with strategic social media,<br>creative content, and<br> authentic UGC.</h1>
                 </div>
                 <div class=""></div>
             </div>
         </div>
-        <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
+        <div class="social-Media_management w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
             <div class="flex flex-col items-center justify-center w-full h-fit">
-                <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
-                    <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
-                        <h1 class="text-4xl font-michroma uppercase">Our Story</h1>
-                        <p class="tracking-wider text-[15px] leading-[1.8]">
-                            At Socials by Reena, we’ve worked with over 200 businesses, ranging from global brands like HelloFresh and BlendJet to local treasures like Patel’s Kingston Lanes. For Patel’s Kingston Lanes, we took their social media from zero presence to becoming a recognized name in their local community.</p>
-                            <p class="tracking-wider text-[15px] leading-[1.8]">
-                                Our content isn’t just pretty—it’s powerful. We’ve helped clients achieve over 3+ million views and significant revenue from single videos. Our content strategies deliver real results, like CTRs and clicks ranking in the top 31% of the industry average. And because I’m an all-niche creator, I don’t believe in narrowing down. Instead, I conduct in-depth research to understand your brand and become your niche.</p>
-                                <p class="tracking-wider text-[15px] leading-[1.8]">
-                                    We constantly stay ahead of the curve, keeping ourselves updated with the latest social media trends and strategies. From algorithm changes to content best practices, we make sure your brand is always a step ahead in the digital space.</p>
+                <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-16">
+                    <div class="flex-col text-[#ffffff] flex w-full md:max-w-[700px] gap-8 justify-start text-left">
+                        <h1 class="md:text-3xl text-2xl font-michroma uppercase">Social media management</h1>
+                        <p class="tracking-wider text-[15px] leading-[1.8]">We handle everything from strategy and content creation to community management and performance tracking. Focus on your business while we build your brand's online presence.</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                        <div class="carousel-container w-[300px] h-[300px] relative">
+                            <div class="slide active">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                            </div>
+                        </div>
+                        <div class="dots-container">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="certification bg-[#EAF8F7] w-full h-auto">
+        <div class="content-creation w-full h-auto bg-[#EAF8F7]">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-16">
+                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                        <div class="carousel-container w-[300px] h-[300px] relative">
+                            <div class="slide active">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                            </div>
+                        </div>
+                        <div class="dots-container">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                        </div>
+                    </div>
+                    <div class="flex-col text-[#000000] flex w-full md:max-w-[700px] gap-8 justify-start text-left">
+                        <h1 class="md:text-3xl text-2xl font-michroma uppercase">Content Creation</h1>
+                        <p class="tracking-wider text-[15px] leading-[1.8]">Captivate your audience with high-quality visuals, engaging copy, and compelling storytelling. We craft content that resonates and drives results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ugc w-full h-auto bg-[#000000] rounded-tl-[100px] rounded-br-[100px]">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div class="flex flex-col md:flex-row justify-between w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-16">
+                    <div class="flex-col text-[#ffffff] flex w-full md:max-w-[700px] gap-8 justify-start text-left">
+                        <h1 class="md:text-3xl text-2xl font-michroma uppercase">UGC<br>(User-Generated Content)</h1>
+                        <p class="tracking-wider text-[15px] leading-[1.8]">Harness the power of authentic voices to build trust and drive conversions. We connect you with creators who can showcase your brand in a genuine way..</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
+                        <div class="carousel-container w-[300px] h-[300px] relative">
+                            <div class="slide active">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="slide">
+                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
+                            </div>
+                        </div>
+                        <div class="dots-container">
+                            <button class="dot active" data-slide="0"></button>
+                            <button class="dot" data-slide="1"></button>
+                            <button class="dot" data-slide="2"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="certification bg-[#FFFFFF] w-full h-auto">
         <div class="flex flex-col items-center justify-center w-full h-fit">
             <div class="flex flex-col md:flex-row object-center justify-center align-center w-full max-w-[1148px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
                 <div class="flex-col text-[#ffffff] text-center flex w-full md:max-w-[600px] gap-8 justify-center text-left">
-                    <h1 class="text-2xl md:text-4xl text-[#343434] font-michroma uppercase">Certifications?<br>
-                        I’ve got those, too! </h1>
+                    <h1 class="text-2xl md:text-4xl whitespace-nowrap text-[#343434] font-michroma uppercase">Have any questions?</h1>
                     <p class="tracking-wider text-[#343434] text-[15px] leading-[1.8]">
-                        From social media marketing with HubSpot Academy to Instagram and video marketing courses from LinkedIn and UGC Marketing with Brands Meet Creators, I’ve invested in staying sharp to deliver results-driven content.</p>
+                        We will be happy to help you.
+Lets connect.!</p>
                         <a href="#schedule-call"
-                        class="flex flex-row gap-6 self-center px-10 py-4 mt-16 max-w-full leading-relaxed text-black bg-[#365413] border border-solid border-zinc-100 rounded-[1000px] w-auto max-md:px-5 max-md:mt-10">
+                        class="flex flex-row gap-6 self-center px-10 py-4 mt-10 max-w-full leading-relaxed text-black bg-[#365413] border border-solid border-zinc-100 rounded-[1000px] w-auto max-md:px-5 max-md:mt-10">
                         <span class="flex-auto -mr-1 text-sm tracking-wide max-md:max-w-full font-michroma text-[#FFFFFF]">
                             Schedule a FREE Disco Call TODAY!
                         </span>
@@ -303,6 +413,46 @@
                     link.setAttribute('href', domain + href); // Add the domain if it's missing
                 }
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            let autoSlideInterval;
+    
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show new slide and activate dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+    
+            function nextSlide() {
+                const nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+    
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            }
+    
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(autoSlideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+    
+            // Start automatic sliding
+            startAutoSlide();
         });
     </script>
 </body>
