@@ -42,12 +42,14 @@
     @media (max-width: 768px) {
         .video-grid {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
         }
     }
 
     @media (max-width: 480px) {
         .video-grid {
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
         }
     }
         /* Carousel Styles */
@@ -279,7 +281,7 @@
                         <li><a href="/" class="text-custom-green hover:text-green-700">Home</a></li>
                         <li><a href="/about-me.html" class="text-custom-green hover:text-green-700">About Us</a></li>
                         <li><a href="/what-we-do.html" class="text-custom-green hover:text-green-700">What I Do</a></li>
-                        <li><a href="#portfolio" class="text-custom-green hover:text-green-700">Portfolio</a></li>
+                        <li><a href="/portfolio.html" class="text-custom-green hover:text-green-700">Portfolio</a></li>
                         <li><a href="#testimonials" class="text-custom-green hover:text-green-700">Testimonials</a></li>
                         <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a></li>
                     </ul>
@@ -310,7 +312,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class="text-4xl font-michroma uppercase">Portfolio</h1>
+                        <h1 class="text-4xl font-michroma uppercase text-center md:text-left">Portfolio</h1>
                         <div class="socialMediaIcon md:flex hidden flex-row gap-3 justify-end">
                             <div class="flex space-x-4 mb-12">
                                 <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
@@ -337,7 +339,7 @@
             </div>
         </div>
         <div class="social-Media_management w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
-            <div class="flex flex-col items-center justify-center w-full h-fit pb-20">
+            <div class="flex flex-col items-center justify-center w-full h-fit pb-20 px-10">
                 <div class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] transition-all duration-200 pt-16 pb-8">
                     <div class="flex-col text-[#ffffff] flex w-full md:max-w-[700px] gap-8 justify-start text-left">
                         <h1 class="md:text-3xl text-2xl font-michroma uppercase">Social media management</h1>

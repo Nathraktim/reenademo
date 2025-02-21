@@ -205,10 +205,11 @@
 
 <body class="font-inter antialiased">
     <div class="flex overflow-hidden flex-col bg-white">
-        <header class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
+        <header
+            class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
             <div id="menu-button" class="flex gap-5 my-auto text-black whitespace-nowrap">
                 <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/3467b4b230bb3450f91819edd7cd79779309649a70aa90ab3a792bf0a240ab0b?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                    src="/public/icons/menu.svg"
                     class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[85px] max-sm:w-[58px]"
                     alt="Company logo" />
                 <nav class="my-auto">
@@ -219,26 +220,29 @@
             </div>
             <a href="/">
                 <img loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/781114358be1c6948f8898710f602e42cfaaa4308ed20f4b9aeb817e3943c890?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                    class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
-                    alt="Company name or branding" />
+                src="/public/icons/socialsbyreenalogo.png"
+                class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
+                alt="Company name or branding" />
             </a>
             <div class="flex flex-wrap gap-10 text-center text-black max-md:max-w-full max-sm:hidden font-">
                 <a href="/contact-us.html"
                     class="flex overflow-hidden gap-4 px-6 py-3.5 my-auto bg-[#365413] rounded-[1000px] max-md:px-5 max-sm:hidden max-sm:-mr-1 max-sm:-ml-0.5">
                     <span class="grow max-sm:text-xs font-michroma text-white">Contact Us</span>
                     <img loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/3bdf8e3eef5a174926d8a37915fdf5bc5d67bb18101340e0c229e4b7e97f173c?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
-                        class="object-contain hover:scale-105 shrink-0 my-auto w-3.5 aspect-square" alt="" />
+                        src="/public/icons/arrow.svg"
+                        class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="" />
                 </a>
             </div>
         </header>
-
         <div id="mobile-menu" class="hidden bg-white py-4">
             <div class="container mx-auto">
                 <div class="flex flex-row justify-end border-2 px-4 py-2 border-gray-200 rounded-full">
                     <button id="close-menu-button" class="flex flex-row text-gray-600 hover:text-gray-800 focus:outline-none">
-                        <!-- SVG -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
                         <span class="ml-2">CLOSE</span>
                     </button>
                 </div>
@@ -247,8 +251,8 @@
                         <li><a href="/" class="text-custom-green hover:text-green-700">Home</a></li>
                         <li><a href="/about-me.html" class="text-custom-green hover:text-green-700">About Us</a></li>
                         <li><a href="/what-we-do.html" class="text-custom-green hover:text-green-700">What I Do</a></li>
-                        <li><a href="#portfolio" class="text-custom-green hover:text-green-700">Portfolio</a></li>
-                        <li><a href="#testimonials" class="text-custom-green hover:text-green-700">Testimonials</a></li>
+                        <li><a href="/portfolio.html" class="text-custom-green hover:text-green-700">Portfolio</a></li>
+                        <li><a href="/packages.html" class="text-custom-green hover:text-green-700">Packages</a></li>
                         <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a></li>
                     </ul>
                 </nav>
