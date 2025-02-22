@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socials By Reena - Contact Us</title>
+    <title>Socials By Reena</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,54 +31,11 @@
         }
     </script>
     <style>
-        .dots-container-first {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 16px;
-    }
+        .package-green {
+            color: #4F6F52;
+            /* Example green color */
+        }
 
-    .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #D9D9D9;
-        opacity: .5;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .dot.active {
-        width: 10px;
-        height: 10px;
-        background-color: #D9D9D9;
-        opacity: 1;
-    }
-        .carousel-container {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-    }
-
-    .slide-first {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    .slide-first.active {
-        opacity: 1;
-    }
-
-    .slide-first img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
         /* Custom CSS for the arrows */
         .custom-arrow {
             background-color: rgba(0, 0, 0, 0.5);
@@ -143,6 +100,68 @@
         .bg-blend-exclusion {
             mix-blend-mode: exclusion;
         }
+
+        .package-card {
+            aspect-ratio: 9/16;
+            min-height: 600px;
+            max-height: 700px;
+        }
+
+        .package-overview {
+            height: 60%;
+        }
+
+        .package-cta {
+            height: 40%;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Edge */
+        .scrollable {
+            overflow: auto;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* Internet Explorer and Edge */
+        }
+
+        /* Hide scrollbar for Webkit browsers */
+        .scrollable::-webkit-scrollbar {
+            display: none;
+        }
+
+        #full-package-content {
+            background-color: white;
+            border-radius: 1.5rem;
+            /* Match the card's rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Match the card's shadow */
+            padding: 2rem;
+            /* Match the card's padding */
+            max-width: 42rem;
+            /* Limit width for better readability */
+            margin: 2.5rem auto;
+            /* Center the overlay */
+        }
+
+        #package-details p {
+            margin-bottom: 1rem;
+            /* Consistent spacing between details */
+        }
+
+        #close-overlay {
+            background-color: #4F6F52;
+            /* Match the button color */
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            /* Rounded button */
+            transition: background-color 0.2s;
+        }
+
+        #close-overlay:hover {
+            background-color: #3e5a3f;
+            /* Darker green on hover */
+        }
     </style>
 </head>
 
@@ -151,8 +170,7 @@
         <header
             class="flex overflow-hidden flex-wrap gap-5 justify-between px-20 pt-px pb-0.5 w-full text-base leading-tight uppercase border-b border-lime-900 bg-neutral-500 bg-opacity-0 max-md:px-5 max-md:max-w-full">
             <div id="menu-button" class="flex gap-5 my-auto text-black whitespace-nowrap">
-                <img loading="lazy"
-                    src="/public/icons/menu.svg"
+                <img loading="lazy" src="/public/icons/menu.svg"
                     class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[85px] max-sm:w-[58px]"
                     alt="Company logo" />
                 <nav class="my-auto">
@@ -162,17 +180,15 @@
                 </nav>
             </div>
             <a href="/">
-                <img loading="lazy"
-                src="/public/icons/socialsbyreenalogo.png"
-                class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
-                alt="Company name or branding" />
+                <img loading="lazy" src="/public/icons/socialsbyreenalogo.png"
+                    class="object-contain shrink-0 max-w-full bg-blend-exclusion aspect-[1.25] w-[119px] max-sm:w-[80px]"
+                    alt="Company name or branding" />
             </a>
             <div class="flex flex-wrap gap-10 text-center text-black max-md:max-w-full max-sm:hidden font-">
                 <a href="/contact-us.html"
                     class="flex overflow-hidden gap-4 px-6 py-3.5 my-auto bg-[#365413] rounded-[1000px] max-md:px-5 max-sm:hidden max-sm:-mr-1 max-sm:-ml-0.5">
                     <span class="grow max-sm:text-xs font-michroma text-white">Contact Us</span>
-                    <img loading="lazy"
-                        src="/public/icons/arrow.svg"
+                    <img loading="lazy" src="/public/icons/arrow.svg"
                         class="object-contain shrink-0 my-auto w-3.5 aspect-square" alt="" />
                 </a>
             </div>
@@ -180,7 +196,8 @@
         <div id="mobile-menu" class="hidden bg-white py-4">
             <div class="container mx-auto">
                 <div class="flex flex-row justify-end border-2 px-4 py-2 border-gray-200 rounded-full">
-                    <button id="close-menu-button" class="flex flex-row text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <button id="close-menu-button"
+                        class="flex flex-row text-gray-600 hover:text-gray-800 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -196,115 +213,424 @@
                         <li><a href="/what-we-do.html" class="text-custom-green hover:text-green-700">What I Do</a></li>
                         <li><a href="/portfolio.html" class="text-custom-green hover:text-green-700">Portfolio</a></li>
                         <li><a href="/packages.html" class="text-custom-green hover:text-green-700">Packages</a></li>
-                        <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a></li>
+                        <li><a href="/contact-us.html" class="text-custom-green hover:text-green-700">Contact Us</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
-        <main class="flex-grow">
-            <section class="flex flex-col w-full items-center px-20 py-16 max-md:px-5">
-                <div class="flex flex-col md:flex-row w-full justify-between items-center">
-                    <h1 class="text-3xl md:text-5xl font-michroma text-custom-green uppercase text-center mb-8">Contact Us</h1>
-                <div class="flex space-x-4 mb-12">
-                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                        <svg width="22" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            
-                    </div>
-                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                        <svg width="22" height="22" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                    </div>
-                    <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
-                        <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z" stroke="#D7AD3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            
-                    </div>
-                </div>
-                </div>
-            </section>
-            <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
-                <div class="flex flex-col items-center justify-center w-full h-fit">
-                    <div class="flex flex-row md:flex-row justify-between w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
-                        <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
-                            <h1 class="text-4xl font-michroma uppercase">Our Story</h1>
-                            <p class="tracking-wider text-[15px] leading-[1.8]">
-                                At Socials by Reena, we’ve worked with over 200 businesses, ranging from global brands like HelloFresh and BlendJet to local treasures like Patel’s Kingston Lanes. For Patel’s Kingston Lanes, we took their social media from zero presence to becoming a recognized name in their local community.</p>
-                                <p class="tracking-wider text-[15px] leading-[1.8]">
-                                    Our content isn’t just pretty—it’s powerful. We’ve helped clients achieve over 3+ million views and significant revenue from single videos. Our content strategies deliver real results, like CTRs and clicks ranking in the top 31% of the industry average. And because I’m an all-niche creator, I don’t believe in narrowing down. Instead, I conduct in-depth research to understand your brand and become your niche.</p>
-                                    <p class="tracking-wider text-[15px] leading-[1.8]">
-                                        We constantly stay ahead of the curve, keeping ourselves updated with the latest social media trends and strategies. From algorithm changes to content best practices, we make sure your brand is always a step ahead in the digital space.</p>
-                    </div>
-                    <div class="flex flex-col items-center justify-center text-[#ffffff] w-full md:max-w-[700px] gap-8">
-                        <div class="carousel-container w-[300px] h-[300px] relative">
-                            <div class="slide-first active">
-                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena.JPG" alt="Slide 1">
-                            </div>
-                            <div class="slide-first">
-                                <img class="shadow-md transition-scale duration-300" src="/public/reena2.JPG" alt="Slide 2">
-                            </div>
-                            <div class="slide-first">
-                                <img class="shadow-md hover:scale-[103%] transition-scale duration-300" src="/public/reena3.JPG" alt="Slide 3">
-                            </div>
-                        </div>
-                        <div class="dots-container-first">
-                            <button class="dot active" data-slide="0"></button>
-                            <button class="dot" data-slide="1"></button>
-                            <button class="dot" data-slide="2"></button>
-                        </div>
-                    </div>
-                </div>
-            </div></div>
-            <div class="ourStory w-full bg-[#EAF8F7] h-auto">
-                <div class="flex flex-col items-center justify-center w-full h-fit">
-                    <div class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-5 transition-all duration-200 md:px-20 pt-20 pb-28">
-                        <div class="flex flex-row w-full p-8 rounded-3xl">
-                            <div class="bg-white hidden md:flex rounded-full w-[300px] h-[300px] shadow-lg m-10"></div>
-                            <form class="flex-grow flex-col gap-4">
-                                <div>
-                                    <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name *</label>
-                                    <input type="text" id="firstName" placeholder="Please Provide Your First Name"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        <div class="hero w-full h-auto">
+            <div class="flex flex-colitems-center justify-center w-full h-fit">
+                <div
+                    class="flex flex-col justify-between w-full max-w-[1299px] transition-all px-5 duration-200 pt-5 md:pt-10 pb-5">
+                    <div class="flex-col md:flex-row text-[#365413] flex w-full md:gap-8 justify-between text-left">
+                        <div class="socialMediaIcon md:hidden flex flex-row gap-3 justify-center">
+                            <div class="flex space-x-4 mb-10">
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 13 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
                                 </div>
-                                <div>
-                                    <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name *</label>
-                                    <input type="text" id="lastName" placeholder="Please Provide Your Last Name"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
                                 </div>
-                                <div>
-                                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address *</label>
-                                    <input type="email" id="email" placeholder="Please Provide Your Email"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                </div>
-                                <div>
-                                    <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name</label>
-                                    <input type="text" id="companyName" placeholder="What's your company or brand?"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                </div>
-                                <div>
-                                    <label for="website" class="block text-gray-700 text-sm font-bold mb-2">Website or Social Media Links</label>
-                                    <input type="text" id="website" placeholder="www.and/or@"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                </div>
-                                <div>
-                                    <label for="startDate" class="block text-gray-700 text-sm font-bold mb-2">Ideal Service Start Date</label>
-                                    <input type="text" id="startDate" placeholder="Date, Month or Season - Whatever your current thoughts are"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                </div>
-                                <button class="bg-custom-green hover:bg-green-700 text-white font-bold py-2 px-4 mt-10 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                    Submit
-                                </button>
-                            </form>
-                        </div>
-                </div>
-            </div></div>
-            
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
 
-        </main>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl font-michroma uppercase text-center md:text-left">Packages</h1>
+                        <div class="socialMediaIcon md:flex hidden flex-row gap-3 justify-end">
+                            <div class="flex space-x-4 mb-12">
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 13 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 1H9C7.67392 1 6.40215 1.52678 5.46447 2.46447C4.52678 3.40215 4 4.67392 4 6V9H1V13H4V21H8V13H11L12 9H8V6C8 5.73478 8.10536 5.48043 8.29289 5.29289C8.48043 5.10536 8.73478 5 9 5H12V1Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M19 1.00691C19 1.00691 18.37 2.85898 17.2 4.00549C18.64 12.8249 8.74 19.263 1 14.236C2.98 14.3242 4.96 13.7068 6.4 12.4721C1.9 11.1492 -0.35 5.94576 1.9 1.88885C3.88 4.18188 6.94 5.50479 10 5.41659C9.19 1.71246 13.6 -0.404189 16.3 2.06523C17.29 2.06523 19 1.00691 19 1.00691Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="bg-[#FFF1CC] text-[#D7AD3D] px-3 py-3 rounded-full">
+                                    <svg width="22" height="22" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.95 5.05H14.959M5.5 1H14.5C16.9853 1 19 3.01472 19 5.5V14.5C19 16.9853 16.9853 19 14.5 19H5.5C3.01472 19 1 16.9853 1 14.5V5.5C1 3.01472 3.01472 1 5.5 1ZM13.6 9.433C13.7111 10.182 13.5831 10.947 13.2344 11.6191C12.8856 12.2912 12.3338 12.8363 11.6575 13.1767C10.9811 13.5171 10.2146 13.6356 9.46701 13.5153C8.71941 13.395 8.02878 13.0421 7.49335 12.5066C6.95793 11.9712 6.60496 11.2806 6.48466 10.533C6.36436 9.7854 6.48286 9.0189 6.82329 8.34254C7.16373 7.66617 7.70877 7.11437 8.38089 6.76562C9.05301 6.41687 9.81798 6.28893 10.567 6.4C11.331 6.5133 12.0384 6.86932 12.5845 7.41548C13.1307 7.96163 13.4867 8.66897 13.6 9.433Z"
+                                            stroke="#D7AD3D" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=""></div>
+            </div>
+        </div>
+        <div class="ourStory w-full h-auto bg-[#55883B] rounded-tl-[100px] rounded-br-[100px]">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div
+                    class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
+                    <div class="flex-col text-[#ffffff] flex w-full md:max-w-[600px] gap-8 justify-start text-left">
+                        <h1 class="text-4xl font-michroma uppercase md:whitespace-nowrap">What we have for you</h1>
+                        <p class="tracking-wider text-[15px] leading-[1.8]">
+                            We provide four Social Media management packages tailored for businesses that lack the time
+                            or expertise to handle their social media accounts. These packages are designed to boost
+                            your confidence and support the implementation of a successful social media strategy,
+                            helping your page grow organically.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ourStory w-full h-auto bg-[#EAF8F7]">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div
+                    class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-16">
+                    <div class="flex-col text-[#000000] flex w-fullgap-8 justify-start text-left">
+                        <h1 class="text-4xl font-michroma uppercase md:whitespace-nowrap">Our Packages</h1>
+                        <div class="bg-[#EAF8F7] py-12 w-full">
+
+                            <div class="bg-[#EAF8F7] pt-10 pb-12">
+                                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                                        <!-- Gold Package Card - Concise Version -->
+                                        <div
+                                            class="bg-white shadow-md rounded-3xl overflow-hidden flex flex-col justify-between">
+                                            <div class="p-6">
+                                                <h3 class="text-2xl font-michroma package-green uppercase mb-4">Gold
+                                                    Package</h3>
+                                                <div class="text-gray-700">
+                                                    <p class="mb-2">Posts per month: <span class="float-right">16</span>
+                                                    </p>
+                                                    <p class="mb-2">Story Ideas/Week: <span class="float-right">4</span>
+                                                    </p>
+                                                    <p class="mb-2">Strategy Call: <span class="float-right">1</span>
+                                                    </p>
+                                                    <p>Daily Engagement: <span class="float-right">20 min</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="p-6 pt-0">
+                                                <p class="text-2xl font-bold package-green mb-2">$999 <span
+                                                        class="text-base font-normal">/month</span></p>
+                                                <p class="text-gray-600 italic text-sm mb-4">Perfect for: Startups
+                                                    establishing social presence.</p>
+                                                <button
+                                                    class="bg-[#4F6F52] text-white py-2 px-4 rounded-full hover:bg-green-700 transition duration-200 w-full text-center block learn-more-btn"
+                                                    data-package="gold">Learn more</button>
+                                            </div>
+                                        </div>
+                                        <!-- Diamond Package Card - Concise Version -->
+                                        <div
+                                            class="bg-white shadow-md rounded-3xl overflow-hidden flex flex-col justify-between">
+                                            <div class="p-6">
+                                                <h3 class="text-2xl font-michroma package-green uppercase mb-4">Diamond
+                                                    Package</h3>
+                                                <div class="text-gray-700">
+                                                    <p class="mb-2">Posts per month: <span class="float-right">20</span>
+                                                    </p>
+                                                    <p class="mb-2">Story Ideas/Week: <span class="float-right">5</span>
+                                                    </p>
+                                                    <p class="mb-2">Strategy Call: <span class="float-right">1.5</span>
+                                                    </p>
+                                                    <p>Daily Engagement: <span class="float-right">30 min</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="p-6 pt-0">
+                                                <p class="text-2xl font-bold package-green mb-2">$1499 <span
+                                                        class="text-base font-normal">/month</span></p>
+                                                <p class="text-gray-600 italic text-sm mb-4">Perfect for: Startups
+                                                    establishing social presence.</p>
+                                                <button
+                                                    class="bg-[#4F6F52] text-white py-2 px-4 rounded-full hover:bg-green-700 transition duration-200 w-full text-center block learn-more-btn"
+                                                    data-package="diamond">Learn more</button>
+                                            </div>
+                                        </div>
+                                        <!-- Custom Package Card -->
+                                        <div
+                                            class="bg-white shadow-md rounded-3xl p-6 flex flex-col justify-center items-center">
+                                            <h3 class="text-xl font-michroma uppercase text-gray-800 mb-4 text-center">
+                                                Custom Package</h3>
+                                            <p class="text-gray-600 mb-4 text-center">Don’t see what you’re looking for?
+                                            </p>
+                                            <p class="text-gray-600 mb-4 text-center">We also provide a customized
+                                                budget friendly package. Get in touch for more details</p>
+                                            <p class="text-gray-800 text-center mt-4">Packages starting from $1499/month
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Power Hour Card -->
+                                    <div class="mt-10 bg-white shadow-md rounded-lg p-6 flex flex-col">
+                                        <h3 class="text-xl font-michroma uppercase text-gray-800 mb-4 text-center">
+                                            Social Media & Marketing Consultation - Power Hour</h3>
+                                        <p class="text-gray-600 mb-4 text-center">Want to manage your own social media
+                                            but need a plan? We’ll have two 1:1 strategy calls every month to go over
+                                            what’s working, what’s missing, and what you actually want from your social
+                                            media. You’ll get a clear strategy and a custom one-month content calendar
+                                            designed just for your business.</p>
+                                        <p class="text-gray-800 text-center mt-4">Packages starting from $399/month</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="full-package-overlay"
+                                class="fixed top-0 left-0 w-full h-[100vh] bg-black backdrop-blur-[8px] bg-opacity-50 z-50 hidden">
+                                <div id="full-package-content"
+                                    class="bg-white h-[80vh] overflow-scroll scrollable overflow-x-hidden  rounded-4xl w-[400px] md:w-[700px] p-8 max-w-2xl mt-20 shadow-lg">
+                                    <h2 id="package-title"
+                                        class="text-3xl font-michroma uppercase text-gray-800 mb-6 text-center"></h2>
+                                    <div id="package-details" class="text-gray-700">
+
+                                    </div>
+                                    <button id="close-overlay"
+                                        class="bg-[#4F6F52] text-white py-2 px-6 rounded-full hover:bg-green-700 transition duration-200 mt-6 mx-auto block">Close</button>
+                                </div>
+                            </div>
+                            <div id="package-modal" class="fixed inset-0 z-50 hidden">
+                                <div class="absolute inset-0 bg-black/50"></div>
+                                <div class="relative max-w-2xl mx-auto mt-20 bg-white rounded-3xl p-8">
+                                    <button id="close-modal"
+                                        class="absolute top-6 right-6 text-gray-500 hover:text-gray-700">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                    <div id="modal-content"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ourStory w-full h-auto bg-[#000000] rounded-tl-[100px] rounded-br-[100px]">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div
+                    class="flex flex-col md:flex-row justify-between w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
+                    <div class="flex-col text-[#ffffff] flex w-full gap-16 justify-start text-left">
+                        <h1 class="text-4xl font-michroma uppercase md:whitespace-nowrap">Can't find what you are
+                            looking for?</h1>
+                        <div class="w-full h-fit md:flex-row gap-8 md:gap-0 flex-col flex justify-between">
+                            <div
+                                class="flex flex-col justify-start gap-8 md:max-w-[600px] tracking-wider text-[15px] leading-[1.8]">
+                                <p>
+                                    Our 1:1 consultations help you take control. We’ll review your current social media,
+                                    identify gaps, understand your goals, and create a tailored content strategy,
+                                    complete with a custom 1-month content calendar designed just for your business.
+                                </p>
+                                <p>
+                                    We also provide a customized budget friendly package. Get in touch for more details
+                                </p>
+                            </div>
+                            <div
+                                class="flex flex-row flex-grow justify-center object-center align-center items-center w-full gap-8">
+                                <div class="h-[100px] w-[100px]">
+                                    <img loading="lazy" src="/public/icons/contact-us-arrow.svg"
+                                        class="object-contain shrink-0 my-auto aspect-square w-full hover:scale-[105%] duration-200 transition-scale cursor-pointer"
+                                        alt="" />
+                                </div>
+                                <div class="w-fit h-fit">
+                                    <p class="font-michroma text-center text-xl">Contact<br>Us</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white py-12">
+            <div class="max-w-[850px] mx-auto px-10 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-michroma uppercase text-gray-800 mb-8 text-center">FAQ's</h2>
+                <div class="accordion">
+                    <div class="accordion-item border-b border-gray-200">
+                        <button id="accordion-button-1" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">How
+                                does Socials by Reena increase my brand awareness?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We use a mix of creative content, targeted advertising, and engagement strategies to get
+                                your brand noticed by the right audience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-gray-200">
+                        <button id="accordion-button-2" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">What
+                                platforms do you manage?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We specialize in managing accounts on Instagram, Facebook, TikTok, and LinkedIn.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-gray-200">
+                        <button id="accordion-button-3" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">How
+                                do you track the success of my social media campaigns?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We provide monthly reports with key metrics like engagement rate, reach, and follower
+                                growth.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-gray-200">
+                        <button id="accordion-button-1" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">How
+                                does Socials by Reena increase my brand awareness?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We use a mix of creative content, targeted advertising, and engagement strategies to get
+                                your brand noticed by the right audience.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-b border-gray-200">
+                        <button id="accordion-button-2" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">What
+                                platforms do you manage?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We specialize in managing accounts on Instagram, Facebook, TikTok, and LinkedIn.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-gray-200">
+                        <button id="accordion-button-3" aria-expanded="false"
+                            class="flex justify-between items-center w-full py-4 text-left font-medium text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <span
+                                class="accordion-title font-michroma max-w-[250px] sm:max-w-[300px] md:max-w-[600px]">How
+                                do you track the success of my social media campaigns?</span>
+                            <span class="icon w-6 h-6 transform transition-transform">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                                    </path>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                            <p class="py-4 px-6 text-gray-600">
+                                We provide monthly reports with key metrics like engagement rate, reach, and follower
+                                growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="certification bg-[#ffffff] w-full h-auto">
+            <div class="flex flex-col items-center justify-center w-full h-fit">
+                <div
+                    class="flex flex-col md:flex-row object-center justify-center align-center w-full max-w-[1299px] px-10 transition-all duration-200 md:px-20 pt-20 pb-28">
+                    <div
+                        class="flex-col text-[#ffffff] text-center flex w-full md:max-w-[600px] gap-8 justify-center text-left">
+                        <h1 class="text-2xl md:text-4xl text-[#343434] font-michroma uppercase">Still got questions?
+                        </h1>
+                        <p class="tracking-wider text-[#343434] text-[15px] leading-[1.8]">
+                            We will be happy to help you.
+                            Lets connect.!</p>
+                        <a href="/contact-us.html"
+                            class="flex flex-row gap-6 self-center px-10 py-4 mt-16 max-w-full leading-relaxed text-black bg-[#365413] border border-solid border-zinc-100 rounded-[1000px] w-auto max-md:px-5 max-md:mt-10">
+                            <span
+                                class="flex-auto -mr-1 text-sm tracking-wide max-md:max-w-full font-michroma text-[#FFFFFF]">
+                                Schedule a FREE Disco Call TODAY!
+                            </span>
+                            <img loading="lazy"
+                                src="https://cdn.builder.io/api/v1/image/assets/22fcd5d67e3b46ef967e89e2f09d6d99/669f4133460852484b26830f74245da9b0fce9683c54d91d2c41972967dd55c7?apiKey=22fcd5d67e3b46ef967e89e2f09d6d99&"
+                                class="object-contain shrink-0 my-auto aspect-square w-[15px]" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer
             class="flex overflow-hidden flex-col pt-14 mt-1.5 w-full leading-tight text-black bg-white border-b border-lime-900 max-md:max-w-full">
             <div
@@ -348,47 +674,316 @@
         closeMenuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
         });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.slide-first');
-            const dots = document.querySelectorAll('.dot');
-            let autoSlideInterval;
-    
-            function showSlide(index) {
-                // Reset all slides and dots
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Show new slide and activate dot
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-                currentSlide = index;
-            }
-    
-            function nextSlide() {
-                const nextIndex = (currentSlide + 1) % slides.length;
-                showSlide(nextIndex);
-            }
-    
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
-            }
-    
-            // Dot click handlers
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    clearInterval(autoSlideInterval);
-                    showSlide(index);
-                    startAutoSlide();
-                });
+        document.addEventListener('DOMContentLoaded', function () {
+            const domain = window.location.origin; // Gets the full domain (e.g., http://localhost:5500)
+            const links = document.querySelectorAll('a[href^="#"]'); // Select all anchor links
+
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+
+                // Check if the href already includes the domain or is just a hash
+                if (!href.startsWith(domain) && href.startsWith('#')) {
+                    link.setAttribute('href', domain + href); // Add the domain if it's missing
+                }
             });
-    
-            // Start automatic sliding
-            startAutoSlide();
         });
     </script>
+    <script>
+        const items = document.querySelectorAll('.accordion-item button');
+
+        function toggleAccordion() {
+            const itemToggle = this.getAttribute('aria-expanded');
+
+            for (i = 0; i < items.length; i++) {
+                items[i].setAttribute('aria-expanded', 'false');
+                items[i].nextElementSibling.style.maxHeight = null; // Close other accordion items
+            }
+
+            if (itemToggle == 'false') {
+                this.setAttribute('aria-expanded', 'true');
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 'px'; // Open clicked item
+            }
+        }
+
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            const overlay = document.getElementById('full-package-overlay');
+            const overlayContent = document.getElementById('full-package-content');
+            const packageTitle = document.getElementById('package-title');
+            const packageDetails = document.getElementById('package-details');
+            const closeOverlayButton = document.getElementById('close-overlay');
+
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const packageType = this.dataset.package;
+                    let title = '';
+                    let detailsHTML = '';
+
+                    if (packageType === 'gold') {
+                        title = 'Gold Package';
+                        detailsHTML = `
+                    <div class="mb-4">
+    <div class="mb-4">
+        <p class="font-semibold">Posts per month: <span class="float-right">16</span></p>
+        <p class="font-semibold">Story Ideas/Week: <span class="float-right">4</span></p>
+        <p class="font-semibold">Strategy Call: <span class="float-right">1</span></p>
+        <p class="font-semibold">Daily Engagement: <span class="float-right">20 min</span></p>
+        <p class="font-semibold">One monthly brands strategy call: <span class="float-right">60 min</span></p>
+
+        <p class="font-semibold">Social Media Management (posting & managing your account): <span class="float-right">4 posts/week</span></p>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Feed Plan & Aesthetics</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Hashtag strategy</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Copywriting</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Professional Video & Photo editing</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Content Creation/UGC Filming (priced separately)</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">SEO Captions & Hashtags writing for each posts</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Trending audio suggestions</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <p class="font-semibold">Engagement after posting: <span class="float-right">20 min</span></p>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Monthly analytic report</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+        <p class="font-semibold">Designed highlight covers: <span class="float-right">4</span></p>
+
+        <p class="font-semibold">Story ideas weekly: <span class="float-right">4</span></p>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Regular communication and support</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Customized content stategy</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Customized content calendar</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+
+        <div class="flex flex-row w-full justify-between">
+            <p class="font-semibold">Customized content scripts + detailed storyboards</p>
+            <img loading="lazy"
+                 src="/public/icons/right-mark.svg"
+                 class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+                 alt="Company logo" />
+        </div>
+    </div>
+</div>
+                    </div>
+                    <p class="mt-4 italic">Who is this for? Ideal for those getting started with a consistent strong, engaging presence with content that connects with your audience on social media.</p>
+                    <p class="italic">Content can be repurposed for TikTok, Facebook, or YouTube Shorts for a small additional fee!</p>
+                `;
+                    }
+
+                    if (packageType === 'diamond') {
+                        title = 'Diamond Package';
+                        detailsHTML = `
+                        <div class="mb-4">
+    <p class="font-semibold">Posts per month: <span class="float-right">20</span></p>
+    <p class="font-semibold">Story Ideas/Week: <span class="float-right">5</span></p>
+    <p class="font-semibold">Strategy Call: <span class="float-right">1.5</span></p>
+    <p class="font-semibold">Daily Engagement: <span class="float-right">30 min</span></p>
+    <p class="font-semibold">One monthly brands strategy call: <span class="float-right">90 min</span></p>
+</div>
+<div class="mb-4">
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Customized content strategy</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Customized content calendar</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Customized content scripts + detailed storyboards</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <p class="font-semibold">Social Media Management (posting & managing your account): <span class="float-right">5 posts/week</span></p>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Feed Plan & Aesthetics</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Hashtag strategy</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Copywriting</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Professional Video & Photo editing</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Content Creation/UGC Filming (priced separately)</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">SEO Captions & Hashtags writing for each posts</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Trending audio suggestions</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+     <p class="font-semibold">Engagement after posting:  <span class="float-right">30 min</span></p>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Monthly analytic report</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Full set of designed highlight covers</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+
+    <p class="font-semibold">Story ideas weekly: <span class="float-right">5 storys/week</span></p>
+
+    <div class="flex flex-row w-full justify-between">
+        <p class="font-semibold">Regular communication and support</p>
+        <img loading="lazy"
+             src="/public/icons/right-mark.svg"
+             class="object-contain shrink-0 aspect-[1.77] rounded-[1000px] w-[10px] max-sm:w-[18px]"
+             alt="Company logo" />
+    </div>
+</div>
+                        `}
+
+                    packageTitle.textContent = title;
+                    packageDetails.innerHTML = detailsHTML;
+                    overlay.classList.remove('hidden');
+                });
+            });
+
+            closeOverlayButton.addEventListener('click', function () {
+                overlay.classList.add('hidden');
+            });
+
+            overlay.addEventListener('click', function (event) {
+                if (event.target === overlay) {
+                    overlay.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
 </body>
 
 </html>

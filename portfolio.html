@@ -208,6 +208,20 @@
         .bg-blend-exclusion {
             mix-blend-mode: exclusion;
         }
+
+        /* Hide scrollbar for Chrome, Safari and Edge */
+        .scrollable {
+            overflow: auto;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* Internet Explorer and Edge */
+        }
+
+        /* Hide scrollbar for Webkit browsers */
+        .scrollable::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body class="font-inter antialiased">
@@ -266,7 +280,7 @@
             </div>
         </div>
         <div class="hero w-full h-auto">
-            <div class="flex flex-col items-center justify-center w-full h-fit">
+            <div class="flex flex-colitems-center justify-center w-full h-fit">
                 <div class="flex flex-col justify-between w-full max-w-[1299px] transition-all px-5 duration-200 pt-5 md:pt-10 pb-5">
                     <div class="flex-col md:flex-row text-[#365413] flex w-full md:gap-8 justify-between text-left">
                         <div class="socialMediaIcon md:hidden flex flex-row gap-3 justify-center">
@@ -323,7 +337,7 @@
                         </div>
                 </div>
                 <div class="videoContainer w-full max-w-[1299px] flex flex-col items-center justify-center">
-                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll">
+                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll scrollable">
                         <div class="video-wrapper relative h-[310px] w-[175px] flex-shrink-0 bg-zinc-700 rounded-2xl overflow-hidden">
                             <video class="w-full h-full object-cover">
                                 <source src="/public/smm/video (1).mov" type="video/mp4">
@@ -418,7 +432,7 @@
                         </div>
                 </div>
                 <div class="videoContainer w-full max-w-[1299px] flex flex-col items-center justify-center">
-                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll">
+                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll scrollable">
                         <div class="video-wrapper relative h-[310px] w-[175px] flex-shrink-0 bg-zinc-700 rounded-2xl overflow-hidden">
                             <video class="w-full h-full object-cover">
                                 <source src="/public/smm/video (1).mov" type="video/mp4">
@@ -511,7 +525,7 @@
                         </div>
                 </div>
                 <div class="videoContainer w-full max-w-[1299px] flex flex-col items-center justify-center">
-                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll">
+                    <div class="flex flex-row w-full h-fit justify-between gap-10 overflow-scroll scrollable">
                         <div class="video-wrapper relative h-[310px] w-[175px] flex-shrink-0 bg-zinc-700 rounded-2xl overflow-hidden">
                             <video class="w-full h-full object-cover">
                                 <source src="/public/smm/video (1).mov" type="video/mp4">
